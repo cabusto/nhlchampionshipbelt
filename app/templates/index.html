@@ -2,7 +2,9 @@
 {% block content %}
 
     <div id="container">
-        <div id="logo" class="row"></div>
+        <div id="logo" class="row">
+            <img src="{{ url_for('static', filename='img/logo.png') }}" alt="" title="">
+        </div>
         
         <div class="row">
             <h1>NHL Championship Belt</h1>
@@ -12,8 +14,10 @@
         
         <div class="row">
                 <h2>Holder of Champ. Belt</h2>
+                <img src="{{ url_for('static', filename='img/nhl-teams/CHI.png') }}" alt="" title=""> <span title="">Blackhawks</span>
                 <h2>Winner of Champ. Belt</h2>
             <div class="title-winner">
+            <img src="{{ url_for('static', filename='img/nhl-teams/CHI.png') }}" alt="" title=""> <span title="">Blackhawks</span>
             </div>
         </div>
         
