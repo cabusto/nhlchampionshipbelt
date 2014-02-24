@@ -1,15 +1,13 @@
 import fileinput
+from Game import Game
+from Team import Team
 
 class HReferenceParser:
-	MODE_TEAMS = 1
-	MODE_FRACHISES = 2
+    mode = 1
+    csvPath = ""
 
-	def __init__(self):
-		self.csvPath = ""
-		self.mode = self.MODE_TEAMS
-	
-	teams = {
-		'Anaheim Ducks' : 'ANA',
+    teams = {
+        'Anaheim Ducks' : 'ANA',
         'Boston Bruins' : 'BOS',
         'Buffalo Sabres' : 'BUF',
         'Calgary Flames' : 'CAL',
@@ -36,37 +34,51 @@ class HReferenceParser:
         'St. Louis Blues' : 'STL',
         'Tampa Bay Lightning' : 'TB',
         'Toronto Maple Leafs' : 'TOR',
-        'Vancouver Canucks ' : 'VAN',
+        'Vancouver Canucks' : 'VAN',
         'Washington Capitals' : 'WSH',
         'Winnipeg Jets' : 'WPG',
-	}
+    }
 
-	
+    def __init__(self, filepath, mode = 1):
+        self.csvPath = filepath
+        self.mode = mode
 
-	def setCSVPath(self, path):
+    def setCSVPath(self, path):
 		self.csvPath = path
 
-	def setMode(self, mode):
-		self.mode = mode;
+    def setMode(self, mode):
+        self.mode = mode
 
-	def loadData(self):
-		if (!fileinput.input(csvPath)) {
-            return
-        }
-        
-        a =[]
+    def loadData(self):
+        a = []
+        if (not fileinput.input(self.csvPath)):
+            return a
+
         for line in fileinput.input(self.csvPath):
-        	a.append(line)
-        
-        return a;
+            a.append(line)
+
+        return a
+
+    def getTeam(self, teamName):
+        id = self.getTeamId(teamName)
+        return Team(id, teamName)
+
+    def getTeamId(self, teamName):
+        return self.teams[teamName]
+
 
     def getGames(self):
     	data = self.loadData();
     	games = []
 
     	for row in data:
-    		date, awayTeamStr, awayTeamScore, homeTeamStr, homeTeamScore = row
-    		g = new Game(date, awayTeamStr, awayTeamScore, homeTeamStr, homeTeamScore)
-    		games.append(g)
+            items = row.split(',')
+            date = items[0]
+            awayTeamStr = self.getTeam(items[1])
+            awayTeamScore = items[2]
+            homeTeamStr = self.getTeam(items[3])
+            homeTeamScore = items[4]
+            g = Game(date, awayTeamStr, awayTeamScore, homeTeamStr, homeTeamScore)
+            games.append(g)
         
-        return games;
+        return games

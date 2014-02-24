@@ -14,10 +14,11 @@
         
         <div class="row">
                 <h2>Holder of Champ. Belt</h2>
-                <img src="{{ url_for('static', filename='img/nhl-teams/CHI.png') }}" alt="" title=""> <span title="">Blackhawks</span>
+                <img src="{{ url_for('static', filename='img/nhl-teams/' + beltHolder.getID() + '.png') }}" alt="" title=""> <span title="">{{ beltHolder.getName() }}</span>
                 <h2>Winner of Champ. Belt</h2>
             <div class="title-winner">
-            <img src="{{ url_for('static', filename='img/nhl-teams/CHI.png') }}" alt="" title=""> <span title="">Blackhawks</span>
+            
+            <img src="{{ url_for('static', filename='img/nhl-teams/' + beltHolder.getID() + '.png') }}" alt="" title=""> <span title="">{{ beltHolder.getName()}}</span>
             </div>
         </div>
         
@@ -25,6 +26,7 @@
                 <h2>NHL Champs</h2> 
                 <div class="champs">
                     <p>
+                    <img src="{{ url_for('static', filename='img/nhl-teams/CHI.png') }}" alt="" title=""> <span title="">Blackhawks</span>
                     </p>
                     <p>
                     </p>
