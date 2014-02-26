@@ -8,8 +8,8 @@ class GameLog:
 		self.win_streak = 0
 		self.belt_games = []
 		#self.clearGames()
-		accumulated_wins_by_team = {}
-		accumulated_wins_by_team.clear()
+		self.accumulated_wins_by_team = {}
+		self.accumulated_wins_by_team.clear()
 
 	def addGame(self, beltGame):
 		old_holder = beltGame.getBeltHolderBeforeGame()
@@ -23,6 +23,7 @@ class GameLog:
 		beltGame.setWinStreak(self.win_streak)
 
 		winner_name = new_holder.getName()
+
 		if (winner_name in self.accumulated_wins_by_team):
 			self.accumulated_wins_by_team[winner_name] += 1
 			beltGame.setAccumulatedWins(self.accumulated_wins_by_team[winner_name])
