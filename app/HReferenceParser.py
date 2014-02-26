@@ -10,7 +10,7 @@ class HReferenceParser:
         'Anaheim Ducks' : 'ANA',
         'Boston Bruins' : 'BOS',
         'Buffalo Sabres' : 'BUF',
-        'Calgary Flames' : 'CAL',
+        'Calgary Flames' : 'CGY',
         'Carolina Hurricanes' : 'CAR',
         'Chicago Blackhawks' : 'CHI', 
         'Colorado Avalanche' : 'COL',
@@ -75,9 +75,18 @@ class HReferenceParser:
             items = row.split(',')
             date = items[0]
             awayTeamStr = self.getTeam(items[1])
-            awayTeamScore = items[2]
+            if (len(items[2]) > 0):
+                awayTeamScore = items[2]
+            else:
+                awayTeamScore = 0
+
             homeTeamStr = self.getTeam(items[3])
-            homeTeamScore = items[4]
+            
+            if (len(items[4]) > 0):
+                homeTeamScore = items[4]
+            else:
+                homeTeamScore = 0
+            
             g = Game(date, awayTeamStr, awayTeamScore, homeTeamStr, homeTeamScore)
             games.append(g)
         

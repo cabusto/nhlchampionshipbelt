@@ -5,6 +5,7 @@ from HReferenceParser import HReferenceParser
 from Schedule import Schedule
 from GameLog import GameLog
 from Stats import Stats
+from BeltGame import BeltGame
 
 @app.route('/')
 def index():
@@ -18,8 +19,10 @@ def index():
 	games = parser.getGames()
 	schedule = Schedule(games)
 	gameLog = GameLog()
+
 	stats = Stats()
 	beltHolder = defendingChamp #availableSeasons[season]
+	beltGame = None
 
 	for g in schedule.games:
 		beltGame = stats.analyzeGame(g, beltHolder)
@@ -42,14 +45,14 @@ def index():
 	}
 
 	return render_template('index.html', 
-		games = games, 
+		games = gameLog.getGames(), 
 		availableSeasons = availableSeasons,
 		beltHolder = beltHolder,
 		isOngoingSeason = season,
 		stats = stats,
 		gameLog = gameLog,
-		upcomingGame = upcomingChampGame,
+		upcomingChampGame = upcomingChampGame,
 		upcomingChampGameIfHomeTeamWins = upcomingChampGameIfHomeTeamWins,
-		upcomingChampGameIfAwayTeamWins = upcomingChampGameIfAwayTeamWins
+		upcomingChampGameIfAwayTeamWins = upcomingChampGameIfAwayTeamWins,
 		)
 

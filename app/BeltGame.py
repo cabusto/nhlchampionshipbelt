@@ -1,14 +1,17 @@
 class BeltGame:
 	# game object
-	game = 0
+	game = None
 	# Team object
-	beltHolder = 0
+	beltHolder = None
 	winStreak = 0
 	accumulatedWins = 0
 
 	def __init__(self, game, beltHolder):
+		self.winStreak = 0
+		self.accumulatedWins = 0
 		self.game = game
 		self.beltHolder = beltHolder
+
 
 	def setWinStreak(self, winStreak):
 		self.winStreak = winStreak

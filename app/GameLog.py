@@ -5,7 +5,11 @@ class GameLog:
 	accumulated_wins_by_team = {}
 
 	def __init__(self):
-		win_streak = 0
+		self.win_streak = 0
+		self.belt_games = []
+		#self.clearGames()
+		accumulated_wins_by_team = {}
+		accumulated_wins_by_team.clear()
 
 	def addGame(self, beltGame):
 		old_holder = beltGame.getBeltHolderBeforeGame()
@@ -29,3 +33,7 @@ class GameLog:
 
 	def getGames(self):
 		return self.belt_games
+
+	def clearGames(self):
+		if (len(self.belt_games) > 0):
+			self.belt_games[:] = []

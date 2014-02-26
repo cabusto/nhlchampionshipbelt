@@ -8,6 +8,10 @@ class TeamStats:
 
 	def __init__(self, team):
 		self.team = team
+		self.winsAsChallenger = 0
+		self.winsAsDefender = 0
+		self.lossesAsDefender = 0
+		self.lossesAsChallenger = 0
 
 	def recordGame(self, hasWon, wasBeltHolder):
 		if (hasWon):

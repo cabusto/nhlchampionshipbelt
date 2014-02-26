@@ -6,7 +6,7 @@ class Stats:
 	stats = {}
 
 	def __init__(self):
-		pass
+		self.stats = {}
 
 	def analyzeGame(self, game, currentBeltHolder):
 		self.assertTeamStats(game.getHomeTeam())

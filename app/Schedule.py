@@ -4,6 +4,7 @@ class Schedule:
 
 	def __init__(self, games):
 		self.setGames(games)
+		
 
 	def setGames(self, games):
 		# some sort of sorting
