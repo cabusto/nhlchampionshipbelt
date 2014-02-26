@@ -15,12 +15,12 @@
         
         <div class="row">
             {% if isOngoingSeason: %}
-                <h2>Holder of Champ. Belt</h2>
+                <h2>Belt Holder</h2>
             {% else: %}
-                <h2>Winner of Champ. Belt</h2>
+                <h2>Belt Winner</h2>
             {% endif %}
             <div class="title-winner">
-                <img src="{{ url_for('static', filename='img/nhl-teams/' + beltHolder.getID() + '.png') }}" alt="" title=""> <span title="">{{ beltHolder.getID()}}</span>
+                <img src="{{ url_for('static', filename='img/nhl-teams/' + beltHolder.getID() + '.png') }}" alt="" title=""> <span title=""></span>
             </div>
         </div>
         
@@ -28,7 +28,7 @@
                 <h2>NHL Champs</h2> 
                 <div class="champs">
                     <p>
-                    <img src="{{ url_for('static', filename='img/nhl-teams/CHI.png') }}" alt="" title=""> <span title=""><p>CHI (2012/13)</p><p>TBD. (2013/14)</p><p></span>
+                    <img src="{{ url_for('static', filename='img/nhl-teams/CHI.png') }}" alt="" title=""> <span title=""><p>CHI (2012/13)</p></span>
                 </div>
             </div>
         
@@ -47,7 +47,8 @@
                 Idea: <a href="http://www.reddit.com/r/nba/comments/1pn9t2/can_we_keep_track_of_the_owner_of_the/">/u/hckygod91 on reddit</a><br>
                 Scores: <a href="http://www.hockey-reference.com/">hockey-reference.com</a><br>
                 Logos: <a href="http://www.nhl.com/">nhl.com</a><br>
-                Contribute: <a href="https://github.com/cabusto/nhlchampionshipbelt">cabusto/nhlchampionshipbelt</a>
+                Contribute: <a href="https://github.com/cabusto/nhlchampionshipbelt">cabusto/nhlchampionshipbelt</a><br>
+                Contribute: <a href="https://github.com/bigwhoop/nbachampionshipbelt">bigwhoop/nbachampionshipbelt</a>
             </p>
         </div>
         
@@ -93,9 +94,15 @@
                 <div class="next-battle">
                     <h2>Next Battle for the Belt</h2>
                         <div class="matchup">
-                            {{ upcomingChampGame.getAwayTeam().getID() }}
+                        <img 
+                            src="{{ url_for('static', filename='img/nhl-teams/' + upcomingChampGame.getAwayTeam().getID() + '.png') }}" 
+                            alt="{{ upcomingChampGame.getAwayTeam().getID() }}" 
+                            title="{{ upcomingChampGame.getAwayTeam().getID() }}">
                             @
-                            {{ upcomingChampGame.getHomeTeam().getID() }}
+                        <img 
+                            src="{{ url_for('static', filename='img/nhl-teams/' + upcomingChampGame.getHomeTeam().getID() + '.png') }}" 
+                            alt="{{ upcomingChampGame.getHomeTeam().getID() }}" 
+                            title="{{ upcomingChampGame.getHomeTeam().getID() }}">
                         </div>
 
                         <div class="date">
@@ -109,9 +116,15 @@
                 {% if (upcomingChampGameIfAwayTeamWins != None): %}
                     <div class="next-battle-after-team-win next-battle-after-away-team-win">
                             <div class="matchup">
-                            {{ upcomingChampGameIfAwayTeamWins.getAwayTeam().getID() }}
+                            <img 
+                            src="{{ url_for('static', filename='img/nhl-teams/' + upcomingChampGameIfAwayTeamWins.getAwayTeam().getID() + '.png') }}" 
+                            alt="{{ upcomingChampGameIfAwayTeamWins.getAwayTeam().getID() }}" 
+                            title="{{ upcomingChampGameIfAwayTeamWins.getAwayTeam().getID() }}">
                             @
-                            {{ upcomingChampGameIfAwayTeamWins.getHomeTeam().getID() }}
+                            <img 
+                            src="{{ url_for('static', filename='img/nhl-teams/' + upcomingChampGameIfAwayTeamWins.getHomeTeam().getID() + '.png') }}" 
+                            alt="{{ upcomingChampGameIfAwayTeamWins.getHomeTeam().getID() }}" 
+                            title="{{ upcomingChampGameIfAwayTeamWins.getHomeTeam().getID() }}">
                             </div>
 
                             <div class="date">
@@ -127,9 +140,15 @@
                     <div class="next-battle-after-team-win next-battle-after-home-team-win">
                 
                             <div class="matchup">
-                            {{ upcomingChampGameIfHomeTeamWins.getAwayTeam().getID() }}
+                            <img 
+                            src="{{ url_for('static', filename='img/nhl-teams/' + upcomingChampGameIfHomeTeamWins.getAwayTeam().getID() + '.png') }}" 
+                            alt="{{ upcomingChampGameIfHomeTeamWins.getAwayTeam().getID() }}" 
+                            title="{{ upcomingChampGameIfHomeTeamWins.getAwayTeam().getID() }}">
                             @
-                            {{ upcomingChampGameIfHomeTeamWins.getHomeTeam().getID() }}
+                            <img 
+                            src="{{ url_for('static', filename='img/nhl-teams/' + upcomingChampGameIfHomeTeamWins.getHomeTeam().getID() + '.png') }}" 
+                            alt="{{ upcomingChampGameIfHomeTeamWins.getHomeTeam().getID() }}" 
+                            title="{{ upcomingChampGameIfHomeTeamWins.getHomeTeam().getID() }}">
                             </div>
                             <div class="date">
                             {{ upcomingChampGameIfHomeTeamWins.getDate() }}
@@ -165,20 +184,26 @@
                 {% set rank = 1 %}
                 {% set prevWinPct = None %}
                 {% set prevNumGames = None %}
-                {% for s in stats.stats: %}
+                {% for s, ts in stats.stats.items(): %}
+                   
                 <tbody>
                         <tr>
                             <td>
 
                             </td>
-                            <td class="numeric"></td>
-                            <td class="numeric"></td>
-                            <td class="numeric"><small></small></td>
-                            <td class="numeric"><small></small></td>
-                            <td class="numeric"></td>
-                            <td class="numeric"><small></small></td>
-                            <td class="numeric"><small></small></td>
-                            <td></td>
+                            <td class="numeric"><img 
+                            src="{{ url_for('static', filename='img/nhl-teams/' + s + '.png') }}" 
+                            alt="{{ s }}" 
+                            title="{{ s }}"></td>
+                            <td class="numeric">{{ ts.countGames() }}</td>
+                            <td class="numeric">{{ ts.countWins() }}</td>
+                            <td class="numeric">{{ ts.countWinsAsChallenger() }}</td>
+                            <td class="numeric">{{ ts.countWinsAsDefender() }}</td>
+                            <td class="numeric">{{ ts.countLosses() }}</td>
+                            <td class="numeric">{{ ts.countLossesAsChallenger() }}</td>
+                            <td class="numeric">{{ ts.countLossesAsDefender() }}</td>
+                            <td class="numeric">{{ ts.calcWinPercentage() }}</td>
+                            
                 {% endfor %}
                     </tbody>
                 

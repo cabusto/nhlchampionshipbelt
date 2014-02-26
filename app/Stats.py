@@ -29,9 +29,9 @@ class Stats:
 	def assertTeamStats(self, team):
 		if (not team in self.stats):
 			t = TeamStats(team)
-			self.stats[team.getName()] = t
+			self.stats[team.getID()] = t
 
-		return self.stats[team.getName()]
+		return self.stats[team.getID()]
 
 	def getSortedStats(self):
 		# sort by win Pct
