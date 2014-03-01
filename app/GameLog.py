@@ -18,9 +18,10 @@ class GameLog:
 		if (old_holder.isSame(new_holder)):
 			self.win_streak += 1
 		else:
-			self.win_streak = 0
+			self.win_streak = 1
 
 		beltGame.setWinStreak(self.win_streak)
+		beltGame.setAccumulatedWins(beltGame.getAccumulatedWins() + 1)
 
 		winner_name = new_holder.getName()
 
@@ -28,7 +29,7 @@ class GameLog:
 			self.accumulated_wins_by_team[winner_name] += 1
 			beltGame.setAccumulatedWins(self.accumulated_wins_by_team[winner_name])
 		else:
-			self.accumulated_wins_by_team[winner_name] = 0
+			self.accumulated_wins_by_team[winner_name] = beltGame.getAccumulatedWins()
 
 		self.belt_games.append(beltGame)
 

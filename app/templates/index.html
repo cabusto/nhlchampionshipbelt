@@ -4,34 +4,112 @@
     
     <div id="container">
         <div id="logo" class="row">
-            <img src="{{ url_for('static', filename='img/hockey_logo.jpg') }}" alt="" title="">
+            <img src="{{ url_for('static', filename='img/hockey_logo.jpg') }}" alt="" title=""><span title=""><h3>NHL Championship Belt</h3></span>
         </div>
-        
-        <div class="row">
-            <h1>NHL Championship Belt</h1>
-        </div>
-        
-        <div class="clear"></div>
-        
+      
         <div class="row">
             {% if isOngoingSeason: %}
                 <h2>Belt Holder</h2>
             {% else: %}
                 <h2>Belt Winner</h2>
             {% endif %}
-            <div class="title-winner">
-                <img src="{{ url_for('static', filename='img/nhl-teams/' + beltHolder.getID() + '.png') }}" alt="" title=""> <span title=""></span>
+            <div class="next-battle">
+                <div class="matchup">
+                    <img src="{{ url_for('static', filename='img/nhl-teams/' + beltHolder.getID() + '.png') }}" alt="" title="">
+                    <span title=""></span>
+                </div>
             </div>
         </div>
         
-            <div class="row">
-                <h2>NHL Champs</h2> 
-                <div class="champs">
-                    <p>
-                    <img src="{{ url_for('static', filename='img/nhl-teams/CHI.png') }}" alt="" title=""> <span title=""><p>CHI (2012/13)</p></span>
+        <div class="row">
+            <h2>NHL Champs</h2> 
+            <div class="next-battle">
+                <div class="matchup">
+                    <img src="{{ url_for('static', filename='img/nhl-teams/CHI.png') }}" 
+                    alt="" 
+                    title="">
                 </div>
             </div>
+        </div>
         
+        <div class="clear"></div>
+        
+        <div class="row">
+            {% if (upcomingChampGame != None): %}
+                <div class="next-battle">
+                    <h2>Next Battle for the Belt</h2>
+                    <div class="matchup">
+                        <img 
+                            src="{{ url_for('static', filename='img/nhl-teams/' + upcomingChampGame.getAwayTeam().getID() + '.png') }}" 
+                            alt="{{ upcomingChampGame.getAwayTeam().getID() }}" 
+                            title="{{ upcomingChampGame.getAwayTeam().getID() }}">
+                            @
+                        <img 
+                            src="{{ url_for('static', filename='img/nhl-teams/' + upcomingChampGame.getHomeTeam().getID() + '.png') }}" 
+                            alt="{{ upcomingChampGame.getHomeTeam().getID() }}" 
+                            title="{{ upcomingChampGame.getHomeTeam().getID() }}">
+                        
+                    </div>
+
+                    <div class="date">
+                        {{ upcomingChampGame.getDate() }}
+                    </div>
+            {% else: %}
+                <p>No More Games!</p>
+            {% endif %}
+                </div>
+                
+                <div class="next-battles-after-team-win">
+                {% if (upcomingChampGameIfAwayTeamWins != None): %}
+                    <div class="next-battle-after-team-win next-battle-after-away-team-win">
+                        <div class="matchup">
+                            <img 
+                            src="{{ url_for('static', filename='img/nhl-teams/' + upcomingChampGameIfAwayTeamWins.getAwayTeam().getID() + '.png') }}" 
+                            alt="{{ upcomingChampGameIfAwayTeamWins.getAwayTeam().getID() }}" 
+                            title="{{ upcomingChampGameIfAwayTeamWins.getAwayTeam().getID() }}">
+                            @
+                            <img 
+                            src="{{ url_for('static', filename='img/nhl-teams/' + upcomingChampGameIfAwayTeamWins.getHomeTeam().getID() + '.png') }}" 
+                            alt="{{ upcomingChampGameIfAwayTeamWins.getHomeTeam().getID() }}" 
+                            title="{{ upcomingChampGameIfAwayTeamWins.getHomeTeam().getID() }}">
+                        </div>
+
+                        <div class="date">
+                            {{ upcomingChampGameIfAwayTeamWins.getDate() }}
+                        </div>
+                {% else: %}
+                        <p>No More Games!</p>
+                {% endif %}
+                           
+                </div>
+                
+                {% if (upcomingChampGameIfHomeTeamWins != None): %}
+                    <div class="next-battle-after-team-win next-battle-after-home-team-win">
+                        <div class="matchup">
+                            <img 
+                            src="{{ url_for('static', filename='img/nhl-teams/' + upcomingChampGameIfHomeTeamWins.getAwayTeam().getID() + '.png') }}" 
+                            alt="{{ upcomingChampGameIfHomeTeamWins.getAwayTeam().getID() }}" 
+                            title="{{ upcomingChampGameIfHomeTeamWins.getAwayTeam().getID() }}">
+                            @
+                            <img 
+                            src="{{ url_for('static', filename='img/nhl-teams/' + upcomingChampGameIfHomeTeamWins.getHomeTeam().getID() + '.png') }}" 
+                            alt="{{ upcomingChampGameIfHomeTeamWins.getHomeTeam().getID() }}" 
+                            title="{{ upcomingChampGameIfHomeTeamWins.getHomeTeam().getID() }}">
+                        </div>
+                        <div class="date">
+                            {{ upcomingChampGameIfHomeTeamWins.getDate() }}
+                        </div>
+                {% else: %}
+                        <p>No More Games!</p>
+                {% endif %}
+                    </div>
+                </div>
+        </div>
+        
+      
+
+        <div class="clear">
+
         <div class="row">
             <h2>Rules</h2>
             <ul>
@@ -40,24 +118,20 @@
                 <li>No playoffs, the race is over after the regular season.</li>
             </ul>
         </div>
-        
         <div class="row">
             <h2>Data Sources</h2>
             <p>
                 Idea: <a href="http://www.reddit.com/r/nba/comments/1pn9t2/can_we_keep_track_of_the_owner_of_the/">/u/hckygod91 on reddit</a><br>
-                Follow: <a href="https://twitter.com/NHLChampBelt">@NHLChampBelt</a></br>
+                Follow: <a href="https://twitter.com/NHLChampBelt">@NHLChampBelt</a><br>
                 Discuss:<a href="http://www.reddit.com/r/nhlchampionshipbelt">/r/nhlchampionshipbelt on reddit</a><br>
                 Scores: <a href="http://www.hockey-reference.com/">hockey-reference.com</a><br>
                 Logos: <a href="http://www.nhl.com/">nhl.com</a><br>
                 Contribute: <a href="https://github.com/cabusto/nhlchampionshipbelt">cabusto/nhlchampionshipbelt</a><br>
-                Contribute: <a href="https://github.com/bigwhoop/nbachampionshipbelt">bigwhoop/nbachampionshipbelt</a>
-            
+                Contribute: <a href="https://github.com/bigwhoop/nbachampionshipbelt">bigwhoop/nbachampionshipbelt</a><br>
             </p>
-
         </div>
         
         <div class="clear"></div>
-
         <div class="row">
             <h2>Game Log</h2>
                 <table>
@@ -85,7 +159,7 @@
                             <td>{{ game.getHomeTeam().getID() }}</td>
                             <td>{{ game.getScore() }}</td>
                             <td>{{ game.getAwayTeam().getID() }}</td>
-                            <td><img src="{{ url_for('static', filename='img/nhl-teams/' + newBeltHolder.getID() + '.png') }}" ></td>
+                            <td><img src="{{ url_for('static', filename='img/nhl-teams/' + newBeltHolder.getID() + '-med.png') }}" ></td>
                             <td>{{ beltGame.getWinStreak() }}</td>
                             <td>{{ beltGame.getAccumulatedWins() }}</td>
                         </tr>
@@ -93,80 +167,13 @@
                         {% endfor %}
                     </tbody>
                 </table>
-
-                {% if (upcomingChampGame != None): %}
-                <div class="next-battle">
-                    <h2>Next Battle for the Belt</h2>
-                        <div class="matchup">
-                        <img 
-                            src="{{ url_for('static', filename='img/nhl-teams/' + upcomingChampGame.getAwayTeam().getID() + '.png') }}" 
-                            alt="{{ upcomingChampGame.getAwayTeam().getID() }}" 
-                            title="{{ upcomingChampGame.getAwayTeam().getID() }}">
-                            @
-                        <img 
-                            src="{{ url_for('static', filename='img/nhl-teams/' + upcomingChampGame.getHomeTeam().getID() + '.png') }}" 
-                            alt="{{ upcomingChampGame.getHomeTeam().getID() }}" 
-                            title="{{ upcomingChampGame.getHomeTeam().getID() }}">
-                        </div>
-
-                        <div class="date">
-                                {{ upcomingChampGame.getDate() }}
-                        </div>
-                {% else: %}
-                    <p>No More Games!</p>
-                {% endif %}
-                </div>
-                <div class="next-battles-after-team-win">
-                {% if (upcomingChampGameIfAwayTeamWins != None): %}
-                    <div class="next-battle-after-team-win next-battle-after-away-team-win">
-                            <div class="matchup">
-                            <img 
-                            src="{{ url_for('static', filename='img/nhl-teams/' + upcomingChampGameIfAwayTeamWins.getAwayTeam().getID() + '.png') }}" 
-                            alt="{{ upcomingChampGameIfAwayTeamWins.getAwayTeam().getID() }}" 
-                            title="{{ upcomingChampGameIfAwayTeamWins.getAwayTeam().getID() }}">
-                            @
-                            <img 
-                            src="{{ url_for('static', filename='img/nhl-teams/' + upcomingChampGameIfAwayTeamWins.getHomeTeam().getID() + '.png') }}" 
-                            alt="{{ upcomingChampGameIfAwayTeamWins.getHomeTeam().getID() }}" 
-                            title="{{ upcomingChampGameIfAwayTeamWins.getHomeTeam().getID() }}">
-                            </div>
-
-                            <div class="date">
-                                {{ upcomingChampGameIfAwayTeamWins.getDate() }}
-                            </div>
-                {% else: %}
-                        <p>No More Games!</p>
-                {% endif %}
-                           
-                    </div>
-                
-                {% if (upcomingChampGameIfHomeTeamWins != None): %}
-                    <div class="next-battle-after-team-win next-battle-after-home-team-win">
-                
-                            <div class="matchup">
-                            <img 
-                            src="{{ url_for('static', filename='img/nhl-teams/' + upcomingChampGameIfHomeTeamWins.getAwayTeam().getID() + '.png') }}" 
-                            alt="{{ upcomingChampGameIfHomeTeamWins.getAwayTeam().getID() }}" 
-                            title="{{ upcomingChampGameIfHomeTeamWins.getAwayTeam().getID() }}">
-                            @
-                            <img 
-                            src="{{ url_for('static', filename='img/nhl-teams/' + upcomingChampGameIfHomeTeamWins.getHomeTeam().getID() + '.png') }}" 
-                            alt="{{ upcomingChampGameIfHomeTeamWins.getHomeTeam().getID() }}" 
-                            title="{{ upcomingChampGameIfHomeTeamWins.getHomeTeam().getID() }}">
-                            </div>
-                            <div class="date">
-                            {{ upcomingChampGameIfHomeTeamWins.getDate() }}
-                            </div>
-                {% else: %}
-                        <p>No More Games!</p>
-                {% endif %}
-                    </div>
-                </div>
         </div>
-        </p>
-        </div>
+
         <div class="clear">
         {% endblock %}
+
+    </div>
+        <!-- following is ignored -->
         <div class="row">
             <h2>Stats</h2>
             <table>
@@ -218,5 +225,5 @@
         </div>
         
         <div class="clear"></div>
-    </div>
+
 

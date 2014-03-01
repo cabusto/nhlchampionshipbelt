@@ -51,7 +51,7 @@ class TeamStats:
 		if (num_games == 0):
 			return 0.0
 
-		return round(self.countWins() / self.countLosses * 100, 2);
+		return round(self.countWins() / self.countLosses() * 100, 2);
 
 	def getTeam(self):
 		return self.team
