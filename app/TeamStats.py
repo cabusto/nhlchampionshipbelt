@@ -1,10 +1,11 @@
 class TeamStats:
 	#team object
-	team = 0
+	team = None
 	winsAsChallenger = 0
 	winsAsDefender = 0
 	lossesAsChallenger = 0
 	lossesAsDefender = 0
+	winPercentage = 0
 
 	def __init__(self, team):
 		self.team = team
@@ -12,7 +13,8 @@ class TeamStats:
 		self.winsAsDefender = 0
 		self.lossesAsDefender = 0
 		self.lossesAsChallenger = 0
-
+		self.winPercentage = 0.0
+    
 	def recordGame(self, hasWon, wasBeltHolder):
 		if (hasWon):
 			if (wasBeltHolder):
@@ -24,6 +26,8 @@ class TeamStats:
 				self.lossesAsDefender += 1
 			else:
 				self.lossesAsChallenger += 1
+				
+		self.calcWinPercentage()
 
 	def countGames(self):
 		return self.countWins() + self.countLosses()
@@ -51,7 +55,7 @@ class TeamStats:
 		if (num_games == 0):
 			return 0.0
 
-		return round(self.countWins() / self.countLosses() * 100, 2);
+		return round(self.countWins() *1.0 / self.countGames() *1.0 * 100.0, 2);
 
 	def getTeam(self):
 		return self.team

@@ -43,10 +43,11 @@ def index():
 		'id' : beltHolder.getID(),
 		'name' : beltHolder.getName()
 	}
-
+  
 	return render_template('index.html', 
 		games = gameLog.getGames(), 
 		availableSeasons = availableSeasons,
+    defendingChamp = defendingChamp,
 		beltHolder = beltHolder,
 		isOngoingSeason = season,
 		stats = stats,
@@ -54,5 +55,6 @@ def index():
 		upcomingChampGame = upcomingChampGame,
 		upcomingChampGameIfHomeTeamWins = upcomingChampGameIfHomeTeamWins,
 		upcomingChampGameIfAwayTeamWins = upcomingChampGameIfAwayTeamWins,
+    sortedStats = stats.getSortedStats(),
 		)
 

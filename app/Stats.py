@@ -1,5 +1,6 @@
 from TeamStats import TeamStats
 from BeltGame import BeltGame
+from operator import itemgetter, attrgetter
 
 class Stats:
 	# TeamStats Object
@@ -23,18 +24,25 @@ class Stats:
 
 		loser = game.getLoser()
 		self.assertTeamStats(loser).recordGame(False, currentBeltHolder.isSame(loser))
-
+		
 		return BeltGame(game, currentBeltHolder)
 
 	def assertTeamStats(self, team):
-		if (not team in self.stats):
+		if (not team.getID() in self.stats):
 			t = TeamStats(team)
 			self.stats[team.getID()] = t
 
+		#print self.stats[team.getID()]
+		#sorted(self.stats, key=attrgetter('winPercentage'))
 		return self.stats[team.getID()]
 
 	def getSortedStats(self):
 		# sort by win Pct
 		# sorted(stats)
-		pass
-
+		sortedList = []
+		for s,t in self.stats.items():
+			sortedList.append(t)
+			
+		print sortedList
+		sorted(sortedList, key=attrgetter('winPercentage'))
+		return sortedList
