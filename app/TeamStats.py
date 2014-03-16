@@ -1,14 +1,15 @@
 class TeamStats:
 	#team object
-	team = None
-	winsAsChallenger = 0
-	winsAsDefender = 0
-	lossesAsChallenger = 0
-	lossesAsDefender = 0
-	winPercentage = 0
+	#team = None
+	#winsAsChallenger = 0
+	#winsAsDefender = 0
+	#lossesAsChallenger = 0
+	#lossesAsDefender = 0
+	#winPercentage = 0
 
-	def __init__(self, team):
+	def __init__(self, team, totalWins = 0):
 		self.team = team
+		self.totalWins = totalWins
 		self.winsAsChallenger = 0
 		self.winsAsDefender = 0
 		self.lossesAsDefender = 0
@@ -28,12 +29,14 @@ class TeamStats:
 				self.lossesAsChallenger += 1
 				
 		self.calcWinPercentage()
+		self.countWins()
 
 	def countGames(self):
 		return self.countWins() + self.countLosses()
 
 	def countWins(self):
-		return self.winsAsChallenger + self.winsAsDefender
+		self.totalWins = self.winsAsChallenger + self.winsAsDefender
+		return self.totalWins
 
 	def countWinsAsChallenger(self):
 		return self.winsAsChallenger

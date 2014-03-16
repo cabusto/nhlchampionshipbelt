@@ -43,6 +43,5 @@ class Stats:
 		for s,t in self.stats.items():
 			sortedList.append(t)
 			
-		print sortedList
-		sorted(sortedList, key=attrgetter('winPercentage'))
+		sortedList = sorted(sortedList, key=attrgetter('totalWins'), reverse=True)
 		return sortedList
