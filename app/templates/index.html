@@ -141,14 +141,14 @@
   <table class="table">
     <thead>
       <tr>
-        <th>#</th>
-        <th>Date</th>
-        <th>Home Team</th>
-        <th>Score</th>
-        <th>Away Team</th>
-        <th>Winner</th>
-        <th>Streak</th>
-        <th>Wins</th>
+        <th class="numeric">#</th>
+        <th class="numeric">Date</th>
+        <th class="numeric">Home Team</th>
+        <th class="numeric">Score</th>
+        <th class="numeric">Away Team</th>
+        <th class="numeric">Winner</th>
+        <th class="numeric">Streak</th>
+        <th class="numeric">Wins</th>
       </tr>
     </thead>
     <tbody>
@@ -158,14 +158,14 @@
       {% set newBeltHolder = beltGame.getBeltHolderAfterGame() %}
       
       <tr>
-        <td>{{ i }}</td>
-        <td>{{ game.getDate() }}</td>
-        <td>{{ game.getHomeTeam().getID() }}</td>
-        <td>{{ game.getScore() }}</td>
-        <td>{{ game.getAwayTeam().getID() }}</td>
-        <td><img src="{{ url_for('static', filename='img/nhl-teams/' + newBeltHolder.getID() + '-med.png') }}" ></td>
-        <td>{{ beltGame.getWinStreak() }}</td>
-        <td>{{ beltGame.getAccumulatedWins() }}</td>
+        <td class="numeric">{{ i }}</td>
+        <td class="numeric">{{ game.getDate() }}</td>
+        <td class="numeric">{{ game.getHomeTeam().getID() }}</td>
+        <td class="numeric">{{ game.getScore() }}</td>
+        <td class="numeric">{{ game.getAwayTeam().getID() }}</td>
+        <td class="numeric"><img src="{{ url_for('static', filename='img/nhl-teams/' + newBeltHolder.getID() + '-med.png') }}" ></td>
+        <td class="numeric">{{ beltGame.getWinStreak() }}</td>
+        <td class="numeric">{{ beltGame.getAccumulatedWins() }}</td>
       </tr>
       {% set i = i + 1 %}
       {% endfor %}
@@ -178,12 +178,12 @@
     <table class="table">
       <thead>
         <tr>
-          <th rowspan="2">Rank</th>
-          <th rowspan="2">Team</th>
+          <th rowspan="2" class="numeric">Rank</th>
+          <th rowspan="2" class="numeric">Team</th>
           <th rowspan="2" class="numeric">Games</th>
           <th colspan="3" class="numeric">Wins</th>
           <th colspan="3" class="numeric">Losses</th>
-          <th rowspan="2">Win %</th>
+          <th rowspan="2" class="numeric">Win %</th>
         </tr>
         <tr>
           <th class="numeric">Total</th>
@@ -201,7 +201,7 @@
       
       <tbody>
         <tr>
-          <td>
+          <td class="numeric">
             {{ ts.team.getID() }}
             
           </td>

@@ -27,7 +27,6 @@
 table { border-collapse: collapse; }
 th, td { border: 1px solid #666; padding: 2px 4px; text-align: left; }
 th { background-color: #777; color: #fff; }
-th[colspan] { text-align: center; }
 td img { vertical-align: middle; }
 tr { background-color: #fff; }
 tr:nth-child(even) { background-color: #f5f5f5; }

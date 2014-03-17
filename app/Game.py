@@ -1,3 +1,5 @@
+from datetime import datetime
+
 class Game:
 	date = ""
 	homeTeam = 0
@@ -16,6 +18,7 @@ class Game:
 		return self.homeTeamScore > 0 and self.awayTeamScore > 0
 
 	def getDate(self):
+		self.date = datetime.strptime(self.date, "%Y-%m-%d").strftime("%x")
 		return self.date
 
 	def getHomeTeam(self):
