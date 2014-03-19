@@ -15,7 +15,7 @@ def index():
 		2013 : defendingChamp,
 	}
 	
-	parser = HReferenceParser('app/static/data/2013.csv')
+	parser = HReferenceParser('app/static/data/2014.csv')
 	games = parser.getGames()
 	schedule = Schedule(games)
 	gameLog = GameLog()
