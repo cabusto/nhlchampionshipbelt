@@ -17,6 +17,5 @@ for row in table.find_all('tr'):
 	
 with open('../data/' + str(year) + '.csv', 'w') as f:
 	writer = csv.writer(f)
-	#writer.writerow(headers)
 	writer.writerows(row for row in rows if row)
 	

@@ -1,12 +1,13 @@
 import fileinput
 from Game import Game
 from Team import Team
+from datetime import date
 
 class HReferenceParser:
-    mode = 1
-    csvPath = ""
+	mode = 1
+	csvPath = ""
 
-    teams = {
+	teams = {
         'Anaheim Ducks' : 'ANA',
         'Boston Bruins' : 'BOS',
         'Buffalo Sabres' : 'BUF',
@@ -37,57 +38,63 @@ class HReferenceParser:
         'Vancouver Canucks' : 'VAN',
         'Washington Capitals' : 'WSH',
         'Winnipeg Jets' : 'WPG',
-    }
+	}
 
-    def __init__(self, filepath, mode = 1):
-        self.csvPath = filepath
-        self.mode = mode
+	def __init__(self, filepath, mode = 1):
+		self.csvPath = filepath
+		self.mode = mode
 
-    def setCSVPath(self, path):
+	def setCSVPath(self, path):
 		self.csvPath = path
 
-    def setMode(self, mode):
-        self.mode = mode
+	def setMode(self, mode):
+		self.mode = mode
 
-    def loadData(self):
-        a = []
-        if (not fileinput.input(self.csvPath)):
-            return a
+	def loadData(self):
+		a = []
+		if (not fileinput.input(self.csvPath)):
+			return a
 
-        for line in fileinput.input(self.csvPath):
-            a.append(line)
+		for line in fileinput.input(self.csvPath):
+			a.append(line)
 
-        return a
+		return a
 
-    def getTeam(self, teamName):
-        id = self.getTeamId(teamName)
-        return Team(id, teamName)
+	def getTeam(self, teamName):
+		id = self.getTeamId(teamName)
+		return Team(id, teamName)
 
-    def getTeamId(self, teamName):
-        return self.teams[teamName]
+	def getTeamId(self, teamName):
+		return self.teams[teamName]
 
 
-    def getGames(self):
-    	data = self.loadData();
-    	games = []
+	def getGames(self):
+		data = self.loadData();
+		games = []
 
-    	for row in data:
-            items = row.split(',')
-            date = items[0]
-            awayTeamStr = self.getTeam(items[1])
-            if (len(items[2]) > 0):
-                awayTeamScore = items[2]
-            else:
-                awayTeamScore = 0
-
-            homeTeamStr = self.getTeam(items[3])
-            
-            if (len(items[4]) > 0):
-                homeTeamScore = items[4]
-            else:
-                homeTeamScore = 0
-            
-            g = Game(date, awayTeamStr, awayTeamScore, homeTeamStr, homeTeamScore)
-            games.append(g)
-        
-        return games
+		for row in data:
+			items = row.split(',')
+			gamedate = items[0]
+			awayTeamStr = self.getTeam(items[1])
+			if (len(items[2]) > 0):
+				awayTeamScore = items[2]
+			else:
+				awayTeamScore = 0
+			
+			homeTeamStr = self.getTeam(items[3])
+						
+			if (len(items[4]) > 0):
+				homeTeamScore = items[4]
+			else:
+				homeTeamScore = 0
+								
+			g = Game(gamedate, awayTeamStr, awayTeamScore, homeTeamStr, homeTeamScore)
+			if (gamedate < str(date.today()) and not g.wasPlayed()):
+				# if here, means game was postponed or cancelled. it screws up the upcoming games
+				# if one of the teams in the postponed games was involved
+				pass
+			else:
+				games.append(g)
+					
+				
+		return games
