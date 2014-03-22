@@ -1,0 +1,94 @@
+Season,Lg,Team,GP,W,L,T,OL,PTS
+2012-13,NHL,Chicago Blackhawks,48,36,7,,5,77
+2011-12,NHL,Los Angeles Kings,82,40,27,,15,95
+2010-11,NHL,Boston Bruins,82,46,25,,11,103
+2009-10,NHL,Chicago Blackhawks,82,52,22,,8,112
+2008-09,NHL,Pittsburgh Penguins,82,45,28,,9,99
+2007-08,NHL,Detroit Red Wings,82,54,21,,7,115
+2006-07,NHL,Anaheim Ducks,82,48,20,,14,110
+2005-06,NHL,Carolina Hurricanes,82,52,22,,8,112
+2003-04,NHL,Tampa Bay Lightning,82,46,22,8,6,106
+2002-03,NHL,New Jersey Devils,82,46,20,10,6,108
+2001-02,NHL,Detroit Red Wings,82,51,17,10,4,116
+2000-01,NHL,Colorado Avalanche,82,52,16,10,4,118
+1999-00,NHL,New Jersey Devils,82,45,24,8,5,103
+1998-99,NHL,Dallas Stars,82,51,19,12,,114
+1997-98,NHL,Detroit Red Wings,82,44,23,15,,103
+1996-97,NHL,Detroit Red Wings,82,38,26,18,,94
+1995-96,NHL,Colorado Avalanche,82,47,25,10,,104
+1994-95,NHL,New Jersey Devils,48,22,18,8,,52
+1993-94,NHL,New York Rangers,84,52,24,8,,112
+1992-93,NHL,Montreal Canadiens,84,48,30,6,,102
+1991-92,NHL,Pittsburgh Penguins,80,39,32,9,,87
+1990-91,NHL,Pittsburgh Penguins,80,41,33,6,,88
+1989-90,NHL,Edmonton Oilers,80,38,28,14,,90
+1988-89,NHL,Calgary Flames,80,54,17,9,,117
+1987-88,NHL,Edmonton Oilers,80,44,25,11,,99
+1986-87,NHL,Edmonton Oilers,80,50,24,6,,106
+1985-86,NHL,Montreal Canadiens,80,40,33,7,,87
+1984-85,NHL,Edmonton Oilers,80,49,20,11,,109
+1983-84,NHL,Edmonton Oilers,80,57,18,5,,119
+1982-83,NHL,New York Islanders,80,42,26,12,,96
+1981-82,NHL,New York Islanders,80,54,16,10,,118
+1980-81,NHL,New York Islanders,80,48,18,14,,110
+1979-80,NHL,New York Islanders,80,39,28,13,,91
+1978-79,NHL,Montreal Canadiens,80,52,17,11,,115
+1977-78,NHL,Montreal Canadiens,80,59,10,11,,129
+1976-77,NHL,Montreal Canadiens,80,60,8,12,,132
+1975-76,NHL,Montreal Canadiens,80,58,11,11,,127
+1974-75,NHL,Philadelphia Flyers,80,51,18,11,,113
+1973-74,NHL,Philadelphia Flyers,78,50,16,12,,112
+1972-73,NHL,Montreal Canadiens,78,52,10,16,,120
+1971-72,NHL,Boston Bruins,78,54,13,11,,119
+1970-71,NHL,Montreal Canadiens,78,42,23,13,,97
+1969-70,NHL,Boston Bruins,76,40,17,19,,99
+1968-69,NHL,Montreal Canadiens,76,46,19,11,,103
+1967-68,NHL,Montreal Canadiens,74,42,22,10,,94
+1966-67,NHL,Toronto Maple Leafs,70,32,27,11,,75
+1965-66,NHL,Montreal Canadiens,70,41,21,8,,90
+1964-65,NHL,Montreal Canadiens,70,36,23,11,,83
+1963-64,NHL,Toronto Maple Leafs,70,33,25,12,,78
+1962-63,NHL,Toronto Maple Leafs,70,35,23,12,,82
+1961-62,NHL,Toronto Maple Leafs,70,37,22,11,,85
+1960-61,NHL,Chicago Black Hawks,70,29,24,17,,75
+1959-60,NHL,Montreal Canadiens,70,40,18,12,,92
+1958-59,NHL,Montreal Canadiens,70,39,18,13,,91
+1957-58,NHL,Montreal Canadiens,70,43,17,10,,96
+1956-57,NHL,Montreal Canadiens,70,35,23,12,,82
+1955-56,NHL,Montreal Canadiens,70,45,15,10,,100
+1954-55,NHL,Detroit Red Wings,70,42,17,11,,95
+1953-54,NHL,Detroit Red Wings,70,37,19,14,,88
+1952-53,NHL,Montreal Canadiens,70,28,23,19,,75
+1951-52,NHL,Detroit Red Wings,70,44,14,12,,100
+1950-51,NHL,Toronto Maple Leafs,70,41,16,13,,95
+1949-50,NHL,Detroit Red Wings,70,37,19,14,,88
+1948-49,NHL,Toronto Maple Leafs,60,22,25,13,,57
+1947-48,NHL,Toronto Maple Leafs,60,32,15,13,,77
+1946-47,NHL,Toronto Maple Leafs,60,31,19,10,,72
+1945-46,NHL,Montreal Canadiens,50,28,17,5,,61
+1944-45,NHL,Toronto Maple Leafs,50,24,22,4,,52
+1943-44,NHL,Montreal Canadiens,50,38,5,7,,83
+1942-43,NHL,Detroit Red Wings,50,25,14,11,,61
+1941-42,NHL,Toronto Maple Leafs,48,27,18,3,,57
+1940-41,NHL,Boston Bruins,48,27,8,13,,67
+1939-40,NHL,New York Rangers,48,27,11,10,,64
+1938-39,NHL,Boston Bruins,48,36,10,2,,74
+1937-38,NHL,Chicago Black Hawks,48,14,25,9,,37
+1936-37,NHL,Detroit Red Wings,48,25,14,9,,59
+1935-36,NHL,Detroit Red Wings,48,24,16,8,,56
+1934-35,NHL,Montreal Maroons,48,24,19,5,,53
+1933-34,NHL,Chicago Black Hawks,48,20,17,11,,51
+1932-33,NHL,New York Rangers,48,23,17,8,,54
+1931-32,NHL,Toronto Maple Leafs,48,23,18,7,,53
+1930-31,NHL,Montreal Canadiens,44,26,10,8,,60
+1929-30,NHL,Montreal Canadiens,44,21,14,9,,51
+1928-29,NHL,Boston Bruins,44,26,13,5,,57
+1927-28,NHL,New York Rangers,44,19,16,9,,47
+1926-27,NHL,Ottawa Senators,44,30,10,4,,64
+1925-26,NHL,Montreal Maroons,36,20,11,5,,45
+1923-24,NHL,Montreal Canadiens,24,13,11,0,,26
+1922-23,NHL,Ottawa Senators,24,14,9,1,,29
+1921-22,NHL,Toronto St. Patricks,24,13,10,1,,27
+1920-21,NHL,Ottawa Senators,24,14,10,0,,28
+1919-20,NHL,Ottawa Senators,24,19,5,0,,38
+1917-18,NHL,Toronto Arenas,22,13,9,0,,26

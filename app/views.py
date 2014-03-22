@@ -1,4 +1,4 @@
-from flask import render_template
+from flask import render_template, redirect, url_for
 from app import app
 from Team import Team
 from HReferenceParser import HReferenceParser
@@ -7,21 +7,38 @@ from GameLog import GameLog
 from Stats import Stats
 from BeltGame import BeltGame
 
-@app.route('/')
-def index():
-	season = 2013
-	defendingChamp = Team('CHI', 'Chicago Blackhawks')
-	availableSeasons = {
-		2013 : defendingChamp,
+season = 2013
+availableSeasons = {
+		2006 : Team('CAR', 'Carolina Hurricanes'),									
+		2007 : Team('ANA', 'Anaheim Ducks'),
+		2008 : Team('DET', 'Detroit Red Wings'),									
+		2009 : Team('PIT', 'Pittsburgh Penguins'),
+		2010 : Team('CHI', 'Chicago Blackhawks'),									
+		2011 : Team('BOS', 'Boston Bruins'),
+		2012 : Team('LAK', 'Los Angeles Kings'),									
+		2013 : Team('CHI', 'Chicago Blackhawks'),
 	}
+
+@app.route('/<season>')
+@app.route('/')
+def index(season=2013):
+	season = int(season)
+	# render current season
+	if (not (season in availableSeasons)):
+		# render season not available
+		print 'no data for ' + str(season)
+		return redirect(url_for('index'))
+		
 	
-	parser = HReferenceParser('app/static/data/2014.csv')
+	data = season + 1
+	parser = HReferenceParser('app/static/data/' + str(data) + '.csv')
 	games = parser.getGames()
 	schedule = Schedule(games)
 	gameLog = GameLog()
 
 	stats = Stats()
-	beltHolder = defendingChamp #availableSeasons[season]
+	beltHolder = availableSeasons[season]
+	defendingChamp = beltHolder
 	beltGame = None
 
 	for g in schedule.games:

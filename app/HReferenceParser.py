@@ -38,6 +38,7 @@ class HReferenceParser:
         'Vancouver Canucks' : 'VAN',
         'Washington Capitals' : 'WSH',
         'Winnipeg Jets' : 'WPG',
+				'Atlanta Thrashers' : 'ATL',
 	}
 
 	def __init__(self, filepath, mode = 1):
