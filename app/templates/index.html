@@ -2,12 +2,31 @@
 {% block content %}
 
 <div class="container">	
+	
+	<div class="navbar">
+              <div class="navbar-inner">
+                <div class="container">
+                  <ul class="nav">
+										<li><a href="http://www.nhlchampionshipbelt.com">2013-14</a></li>
+										<li><a href="http://www.nhlchampionshipbelt.com/2013">2012-13</a></li>
+                    <li><a href="http://www.nhlchampionshipbelt.com/2012">2011-12</a></li>
+                    <li><a href="http://www.nhlchampionshipbelt.com/2011">2010-11</a></li>
+                    <li><a href="http://www.nhlchampionshipbelt.com/2010">2009-10</a></li>
+                    <li><a href="http://www.nhlchampionshipbelt.com/2009">2008-09</a></li>
+										<li><a href="http://www.nhlchampionshipbelt.com/2008">2007-08</a></li>
+                    <li><a href="http://www.nhlchampionshipbelt.com/2007">2006-07</a></li>
+                    <li><a href="http://www.nhlchampionshipbelt.com/2006">2005-06</a></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+	
 	<div class="row">
 		<div class="span4">
 	    	<img src="{{ url_for('static', filename='img/NHL_ChampBelt.png') }}" alt="" title="">
 	    </div>
 	    <div class="span8">
-	    	<h1>NHL Championship Belt</h1>
+				<h1>NHL Championship Belt {{ currentSeason }}</h1>
 		</div>
 	</div>
 

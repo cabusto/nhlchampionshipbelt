@@ -7,7 +7,7 @@ from GameLog import GameLog
 from Stats import Stats
 from BeltGame import BeltGame
 
-season = 2013
+season = 2014
 availableSeasons = {
 		2006 : Team('CAR', 'Carolina Hurricanes'),									
 		2007 : Team('ANA', 'Anaheim Ducks'),
@@ -21,23 +21,24 @@ availableSeasons = {
 
 @app.route('/<season>')
 @app.route('/')
-def index(season=2013):
+def index(season=2014):
 	season = int(season)
+	champ = season - 1
 	# render current season
-	if (not (season in availableSeasons)):
+	if (not (champ in availableSeasons)):
 		# render season not available
 		print 'no data for ' + str(season)
 		return redirect(url_for('index'))
 		
 	
-	data = season + 1
-	parser = HReferenceParser('app/static/data/' + str(data) + '.csv')
+	#data = season
+	parser = HReferenceParser('app/static/data/' + str(season) + '.csv')
 	games = parser.getGames()
 	schedule = Schedule(games)
 	gameLog = GameLog()
 
 	stats = Stats()
-	beltHolder = availableSeasons[season]
+	beltHolder = availableSeasons[champ]
 	defendingChamp = beltHolder
 	beltGame = None
 
@@ -73,5 +74,6 @@ def index(season=2013):
 		upcomingChampGameIfHomeTeamWins = upcomingChampGameIfHomeTeamWins,
 		upcomingChampGameIfAwayTeamWins = upcomingChampGameIfAwayTeamWins,
     sortedStats = stats.getSortedStats(),
+		currentSeason = season,
 		)
 
