@@ -22,7 +22,7 @@ def scrape(year=2014):
 	for row in table.find_all('tr'):
 		rows.append([val.text.encode('utf8') for val in row.find_all('td')])
 	
-	with open('./app/static/data/' + str(year) + '.csv', 'w') as f:
+	with open('./app/static/data/' + str(year) + '.csv', 'wb') as f:
 		print "Writing to /app/static/data/" + str(year) + ".csv"
 		writer = csv.writer(f)
 		writer.writerows(row for row in rows if row)
