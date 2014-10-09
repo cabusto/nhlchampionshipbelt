@@ -17,11 +17,12 @@ availableSeasons = {
 		2011 : Team('BOS', 'Boston Bruins'),
 		2012 : Team('LAK', 'Los Angeles Kings'),									
 		2013 : Team('CHI', 'Chicago Blackhawks'),
+		2014 : Team('LAK', 'Los Angeles Kings')
 	}
 
 @app.route('/<season>')
 @app.route('/')
-def index(season=2014):
+def index(season=2015):
 	season = int(season)
 	champ = season - 1
 	# render current season
