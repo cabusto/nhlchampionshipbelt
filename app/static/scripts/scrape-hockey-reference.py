@@ -2,7 +2,7 @@ from bs4 import BeautifulSoup
 import csv
 import urllib2
 
-year = 2014
+year = 2015
 r  = urllib2.urlopen("http://www.hockey-reference.com/leagues/NHL_" + str(year) + "_games.html")
 data = r.read()
 r.close()
