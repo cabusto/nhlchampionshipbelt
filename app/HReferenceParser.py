@@ -30,6 +30,7 @@ class HReferenceParser:
         'Ottawa Senators' : 'OTT',
         'Philadelphia Flyers' : 'PHI',
         'Phoenix Coyotes' : 'PHX',
+		'Arizona Coyotes' : 'AZ',
         'Pittsburgh Penguins' : 'PIT',
         'San Jose Sharks' : 'SJS',
         'St. Louis Blues' : 'STL',
