@@ -1,4 +1,4 @@
-import Game
+import app.Game
 
 class Team:
 	id = ""
@@ -10,7 +10,7 @@ class Team:
 		self.name = name
 
 	def getID(self):
-		return self.id;
+		return self.id
 
 	def getName(self):
 		return self.name

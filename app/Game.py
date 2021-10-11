@@ -7,7 +7,7 @@ class Game:
 	homeTeamScore = 0
 	awayTeamScore = 0
 
-	def __init__(self, date, awayTeam, awayTeamScore, homeTeam, homeTeamScore):
+	def __init__(self, date, awayTeam, awayTeamScore:int, homeTeam, homeTeamScore: int):
 		self.date = date
 		self.awayTeam = awayTeam
 		self.awayTeamScore = awayTeamScore
@@ -15,7 +15,7 @@ class Game:
 		self.homeTeamScore = homeTeamScore
 
 	def wasPlayed(self):
-		return self.homeTeamScore > 0 and self.awayTeamScore > 0
+		return int(self.homeTeamScore) > 0 and int(self.awayTeamScore) > 0
 
 	def getDate(self):
 		self.date = datetime.strptime(self.date, "%Y-%m-%d").strftime("%x")

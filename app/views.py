@@ -1,11 +1,11 @@
 from flask import render_template, redirect, url_for
 from app import app
-from Team import Team
-from HReferenceParser import HReferenceParser
-from Schedule import Schedule
-from GameLog import GameLog
-from Stats import Stats
-from BeltGame import BeltGame
+from app.Team import Team
+from app.HReferenceParser import HReferenceParser
+from app.Schedule import Schedule
+from app.GameLog import GameLog
+from app.Stats import Stats
+from app.BeltGame import BeltGame
 
 season = 2014
 availableSeasons = {
@@ -17,18 +17,22 @@ availableSeasons = {
 		2011 : Team('BOS', 'Boston Bruins'),
 		2012 : Team('LAK', 'Los Angeles Kings'),									
 		2013 : Team('CHI', 'Chicago Blackhawks'),
-		2014 : Team('LAK', 'Los Angeles Kings')
+		2014 : Team('LAK', 'Los Angeles Kings'),
+		2015 : Team('CHI', 'Chicago Blackhawks'),
+		2016 : Team('PIT', 'Pittsburgh Penguins'),
+		2017 : Team('PIT', 'Pittsburgh Penguins'),
+		2018 : Team('WSH', 'Washington Capitals')
 	}
 
 @app.route('/<season>')
 @app.route('/')
-def index(season=2015):
+def index(season=2018):
 	season = int(season)
 	champ = season - 1
 	# render current season
 	if (not (champ in availableSeasons)):
 		# render season not available
-		print 'no data for ' + str(season)
+		print("no data for {str(season)}")
 		return redirect(url_for('index'))
 		
 	

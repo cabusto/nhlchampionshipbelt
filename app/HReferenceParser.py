@@ -1,6 +1,6 @@
 import fileinput
-from Game import Game
-from Team import Team
+from app.Game import Game
+from app.Team import Team
 from datetime import date
 
 class HReferenceParser:

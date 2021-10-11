@@ -1,5 +1,5 @@
-from TeamStats import TeamStats
-from BeltGame import BeltGame
+from app.TeamStats import TeamStats
+from app.BeltGame import BeltGame
 from operator import itemgetter, attrgetter
 
 class Stats:
