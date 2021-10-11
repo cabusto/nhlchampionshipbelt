@@ -30,6 +30,7 @@ class HReferenceParser:
         'Ottawa Senators' : 'OTT',
         'Philadelphia Flyers' : 'PHI',
         'Phoenix Coyotes' : 'PHX',
+		'Arizona Coyotes' : 'AZ',
         'Pittsburgh Penguins' : 'PIT',
         'San Jose Sharks' : 'SJS',
         'St. Louis Blues' : 'STL',
@@ -38,6 +39,7 @@ class HReferenceParser:
         'Vancouver Canucks' : 'VAN',
         'Washington Capitals' : 'WSH',
         'Winnipeg Jets' : 'WPG',
+				'Atlanta Thrashers' : 'ATL',
 	}
 
 	def __init__(self, filepath, mode = 1):
