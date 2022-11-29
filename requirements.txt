@@ -7,6 +7,6 @@ Werkzeug==0.9.4
 gunicorn==18.0
 itsdangerous==2.0.1
 queuelib==1.1.1
-w3lib==1.5
+w3lib==2.1.0
 wsgiref==0.1.2
 beautifulsoup4==4.3.2
